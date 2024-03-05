@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meal Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], select {
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: 100px;
+        }
+
+        /* Split the meal input into three smaller boxes */
+        .meal-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .meal-input {
+            flex: 1;
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .generate-csv-button,
+        .download-pdf-button {
+            background-color: #2196F3;
+            margin-top: 20px;
+        }
+
+        .individual-button,
+        .report-button {
+            background-color: #009688;
+            margin-top: 10px;
+        }
+
+        /* Styling for the upload button */
+        .upload-button {
+            background-color: #FF9800;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Meal Tracker</h1>
+    <form id="mealForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="week">Week:</label>
+        <select id="week" name="week">
+            <option value="week1">Week 1</option>
+            <option value="week2">Week 2</option>
+            <option value="week3">Week 3</option>
+            <option value="week4">Week 4</option>
+        </select>
+
+        <label for="day">Day:</label>
+        <select id="day" name="day">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+        </select>
+
+        <label for="meal">Meal:</label>
+        <div class="meal-container">
+            <label for="meal1" style="flex: 1; margin-right: 5px;">Breakfast:</label>
+            <input type="text" id="meal1" name="meal1" class="meal-input">
+            <label for="meal2" style="flex: 1; margin-right: 5px;">Lunch:</label>
+            <input type="text" id="meal2" name="meal2" class="meal-input">
+            <label for="meal3" style="flex: 1; margin-right: 5px;">Dinner:</label>
+            <input type="text" id="meal3" name="meal3" class="meal-input">
+        </div>
+
+        <label for="quantity">Quantity:</label>
+        <input type="text" id="quantity" name="quantity">
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <button class="generate-csv-button" onclick="generateCSV()">Generate CSV</button>
+    <button class="individual-button">Individual Report</button>
+    <button class="report-button" onclick="generateGeneralReport()">General Report</button>
+
+    <!-- Upload button -->
+    <!-- Add this code below the existing HTML -->
+    <input type="file" id="fileInput">
+    <button class="upload-button" onclick="uploadFile()">Generate General Report</button>
+    <pre id="output"></pre>
+
+    <!-- Download PDF button -->
+    <button class="download-pdf-button" onclick="downloadPDF()">Download PDF</button>
+
+    <!-- Table for displaying data -->
+    <table id="dataTable"></table>
+
+    <script>
+        // Your existing JavaScript code
+    </script>
+</body>
+</html>
