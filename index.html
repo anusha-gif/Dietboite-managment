@@ -39,6 +39,17 @@
 			height: 100px;
 		}
 		
+		/* Split the meal input into three smaller boxes */
+		.meal-container {
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		.meal-input {
+			flex: 1;
+			margin-right: 5px;
+		}
+		
 		button {
 			background-color: #4CAF50;
 			color: white;
@@ -67,6 +78,13 @@
 			background-color: #6495ED;
 			margin-top: 10px;
 		}
+
+		/* Styling for the upload button */
+		.upload-button {
+			background-color: #FF9800;
+			margin-top: 10px;
+		}
+
 	</style>
 </head>
 <body>
@@ -74,6 +92,14 @@
 	<form>
 		<label for="name">Name:</label>
 		<input type="text" id="name" name="name">
+		
+		<label for="week">Week:</label>
+		<select id="week" name="week">
+			<option value="week1">Week 1</option>
+			<option value="week2">Week 2</option>
+			<option value="week3">Week 3</option>
+			<option value="week4">Week 4</option>
+		</select>
 		
 		<label for="day">Day:</label>
 		<select id="day" name="day">
@@ -87,7 +113,11 @@
 		</select>
 		
 		<label for="meal">Meal:</label>
-		<textarea id="meal" name="meal"></textarea>
+		<div class="meal-container">
+			<input type="text" id="meal1" name="meal1" class="meal-input">
+			<input type="text" id="meal2" name="meal2" class="meal-input">
+			<input type="text" id="meal3" name="meal3" class="meal-input">
+		</div>
 		
 		<label for="quantity">Quantity:</label>
 		<input type="text" id="quantity" name="quantity">
@@ -98,5 +128,8 @@
 	<button class="generate-csv-button">Generate CSV</button>
 	<button class="individual-button">Individual Report</button>
 	<button class="report-button">General Report</button>
+
+	<!-- Upload button -->
+	<input type="file" class="upload-button" />
 </body>
 </html>
